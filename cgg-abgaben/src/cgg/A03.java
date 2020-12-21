@@ -33,19 +33,6 @@ public class A03 {
 		System.out.println("Wrote image: " + filename);
 	}
 
-	public static void makeGammaCorrection(Color clr) {
-		// Gamma-Korrektur
-		double intensity = clr.intensity();
-		clr.b /= intensity;
-		clr.g /= intensity;
-		clr.r /= intensity;
-
-		double gintensity = Math.pow(intensity, 1 / GAMMA);
-
-		clr.b *= gintensity;
-		clr.g *= gintensity;
-		clr.r *= gintensity;
-	}
 
 	private static int n = 10;
 
@@ -77,7 +64,7 @@ public class A03 {
 				}
 			}
 			color = Color.divide(color, n * n);
-			makeGammaCorrection(color);
+			GammaCorrector.correct(color);
 			image.setPixel(x, y, color);
 
 		}

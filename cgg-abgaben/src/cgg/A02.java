@@ -91,7 +91,7 @@ public class A02 {
 			for(int y =0; y != image.height; ++y) {
 				Color clr = discs.getColor(new Point2D(x,y));
 				
-				A03.makeGammaCorrection(clr);
+				GammaCorrector.correct(clr);
 				
 				image.setPixel(x, y, clr);
 			}
