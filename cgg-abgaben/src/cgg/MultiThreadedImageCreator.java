@@ -2,6 +2,7 @@ package cgg;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import cgtools.Color;
 import cgtools.Sampler;
@@ -50,6 +51,11 @@ public class MultiThreadedImageCreator {
 		System.out.println("Submitted all task to thread pool!");
 		
 		pool.shutdown();
+		try {
+			pool.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		
 		System.out.println("Now we wait for all threads to finish!");
 	}

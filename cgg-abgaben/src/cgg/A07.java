@@ -10,7 +10,7 @@ public class A07 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		writeFile1();
-		writeFile2();
+		//writeFile2();
 
 	}
 		private static void writeFile1() {
