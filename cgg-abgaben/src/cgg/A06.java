@@ -66,7 +66,8 @@ public class A06 {
 		scene.add(ballGlass2);
 
 
-		A03.sample(raytracer.getImage(), raytracer);
+		MultiThreadedImageCreator mtic = new MultiThreadedImageCreator(4, raytracer.getImage(), raytracer);
+		mtic.createImage();
 
 		raytracer.getImage().write(filename);
 		System.out.println("Wrote image: " + filename);
@@ -135,7 +136,8 @@ public class A06 {
 
 
 
-		A03.sample(raytracer.getImage(), raytracer);
+		MultiThreadedImageCreator mtic = new MultiThreadedImageCreator(4, raytracer.getImage(), raytracer);
+		mtic.createImage();
 
 		raytracer.getImage().write(filename);
 		System.out.println("Wrote image: " + filename);

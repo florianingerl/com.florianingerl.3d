@@ -52,7 +52,8 @@ public class A05 {
 		scene.add(ball4);
 		
 		
-		A03.sample(raytracer.getImage(), raytracer);
+		MultiThreadedImageCreator mtic = new MultiThreadedImageCreator(4, raytracer.getImage(), raytracer);
+		mtic.createImage();
 		
 		final String filename = "doc/a05-diffuse-spheres.png";
 		raytracer.getImage().write(filename);

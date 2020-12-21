@@ -181,7 +181,8 @@ public class A08 {
 			lg3.transformation = new Transformation(m7);
 		}
 
-		A03.sample(raytracer.getImage(), raytracer);
+		MultiThreadedImageCreator mtic = new MultiThreadedImageCreator(4, raytracer.getImage(), raytracer);
+		mtic.createImage();
 
 		final String filename = "doc/a08-1.png";
 		raytracer.getImage().write(filename);
@@ -356,7 +357,8 @@ public class A08 {
 				lg3.transformation = new Transformation(m7);
 			}
 
-			A03.sample(raytracer.getImage(), raytracer);
+			MultiThreadedImageCreator mtic = new MultiThreadedImageCreator(4, raytracer.getImage(), raytracer);
+			mtic.createImage();
 
 			final String filename = "doc/a08-2.png";
 			raytracer.getImage().write(filename);

@@ -9,7 +9,8 @@ public class A04 {
 		// TODO Auto-generated method stub
 		Raytracer raytracer = new Raytracer();
 		
-		A03.sample(raytracer.getImage(), raytracer);
+		MultiThreadedImageCreator mtic = new MultiThreadedImageCreator(4, raytracer.getImage(), raytracer);
+		mtic.createImage();
 		
 		final String filename = "doc/a04-3-spheres.png";
 		raytracer.getImage().write(filename);
@@ -130,7 +131,9 @@ public class A04 {
 		shapes.add(ballbl);
 		
 		
-		A03.sample(raytracer.getImage(), raytracer);
+		mtic = new MultiThreadedImageCreator(4, raytracer.getImage(), raytracer);
+		mtic.createImage();
+		
 		final String filename2 = "doc/a04-scene.png";
 		raytracer.getImage().write(filename2);
 		System.out.println("Wrote image: " + filename2);

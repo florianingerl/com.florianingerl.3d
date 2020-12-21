@@ -100,7 +100,9 @@ public class A02 {
 		
 		image.write(filename);
 		System.out.println("Wrote image: " + filename);
-		A03.sample(image, discs);
+		
+		MultiThreadedImageCreator mtic = new MultiThreadedImageCreator(4, image, discs);
+		mtic.createImage();
 
 		image.write(filename1);
 		System.out.println("Wrote image: " + filename1);

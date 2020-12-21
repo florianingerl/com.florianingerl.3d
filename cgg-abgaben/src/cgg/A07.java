@@ -172,7 +172,8 @@ public class A07 {
 		scene.add(sonne);
 		
 
-		A03.sample(raytracer.getImage(), raytracer);
+		MultiThreadedImageCreator mtic = new MultiThreadedImageCreator(4, raytracer.getImage(), raytracer);
+		mtic.createImage();
 
 		raytracer.getImage().write( filename );
 		System.out.println("Wrote image: " + filename );
@@ -337,7 +338,8 @@ private static void writeFile2() {
 		scene.add(sonne);
 		
 
-		A03.sample(raytracer.getImage(), raytracer);
+		MultiThreadedImageCreator mtic = new MultiThreadedImageCreator(4, raytracer.getImage(), raytracer);
+		mtic.createImage();
 
 		raytracer.getImage().write( filename );
 		System.out.println("Wrote image: " + filename );
