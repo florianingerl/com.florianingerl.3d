@@ -84,5 +84,10 @@ public class Zylinder implements Shape {
 		return hit;
 
 	}
+	
+	@Override
+	public BoundingBox bounds() {
+		return new BoundingBox( Vector.point(pos.x - radius, pos.y, pos.z - radius), Vector.point(pos.x + radius, pos.y + height, pos.z + radius) );
+	}
 
 }

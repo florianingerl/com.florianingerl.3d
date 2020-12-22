@@ -8,7 +8,7 @@ import cgtools.Sampler;
 
 public class MultiSampler {
 
-	private static int n = 10;
+	private static int n = 5;
 	
 	public static Color multiSample(int x, int y, Sampler sampler) {
 		Color color = black;

@@ -56,7 +56,5 @@ public class MultiThreadedImageCreator {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
-		System.out.println("Now we wait for all threads to finish!");
 	}
 }

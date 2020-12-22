@@ -16,5 +16,9 @@ public class Ray {
 	public Point pointAt(double t) {
 		return Vector.add(origin , Vector.multiply(d, t) ); // x0 + t * d
 	}
+	
+	public boolean contains(double t) {
+		return t>= tmin && t <= tmax;
+	}
 
 }

@@ -33,5 +33,10 @@ public class Plane implements Shape {
 		
 		return hit;
 	}
+	
+	@Override
+	public BoundingBox bounds() {
+		return BoundingBox.everything;
+	}
 
 }

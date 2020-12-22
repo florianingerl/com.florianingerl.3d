@@ -47,4 +47,10 @@ public class Ball implements Shape {
 		
 		return hit;
 	}
+	
+	
+	@Override
+	public BoundingBox bounds() {
+		return new BoundingBox(Vector.point(m.x - r, m.y - r, m.z - r), Vector.point(m.x + r, m.y + r, m.z + r) );
+	}
 }
