@@ -39,10 +39,12 @@ public class Cone implements Shape {
 			double t1 = (-b + D) / (2 * a);
 			double t2 = (-b - D) / (2 * a);
 
-			if (t1 >= ray.tmin) {
+			double y = x0.y + t1 * ray.d.y;
+			if (t1 >= ray.tmin && 0<= y && y<=h ) {
 				t = t1;
 			}
-			if (t2 >= ray.tmin) {
+			y = x0.y + t2 * ray.d.y;
+			if (t2 >= ray.tmin && 0<=y && y<=h) {
 				t = Math.min(t, t2);
 			}
 		}

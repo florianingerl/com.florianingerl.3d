@@ -48,6 +48,11 @@ public class ConeTestApp {
 		Cone cone = new Cone(Vector.point(0, 0, 0), 30, 100, new PerfectDiffuseMaterial(Color.red) );
 		g1.add(cone);
 		
+		Group g2 = new Group();
+		g2.add(cone);
+		g1.add(g2);
+		g2.transformation = new Transformation( Matrix.rotation(Vector.direction(1, 0, 0), -75) );
+		
 		MultiThreadedImageCreator mtic = new MultiThreadedImageCreator(4, raytracer.getImage(), raytracer);
 		mtic.createImage();
 
