@@ -20,6 +20,8 @@ public class Zylinder implements Shape {
 
 	@Override
 	public Hit intersect(Ray ray) {
+		
+		if(! bounds().intersect(ray) ) return null;
 
 		Direction m = Vector.direction(pos.x, pos.y, pos.z);
 		Point x0 = Vector.subtract(ray.origin, m);

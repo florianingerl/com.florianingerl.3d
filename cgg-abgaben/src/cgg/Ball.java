@@ -14,6 +14,7 @@ public class Ball implements Shape {
 	
 	@Override
 	public Hit intersect(Ray ray) {
+		if(! bounds().intersect(ray) ) return null;
 		
 		Direction m = Vector.direction(this.m.x, this.m.y, this.m.z);
 		Point x0 = Vector.subtract(ray.origin, m);
