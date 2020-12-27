@@ -26,7 +26,7 @@ public class Cone implements Shape {
 		Point x0 = Vector.subtract(ray.origin, m);
 
 		double a = Math.pow(ray.d.x, 2) + Math.pow(ray.d.z, 2) - Math.pow(r * ray.d.y / h, 2);
-		double b = 2 * (x0.x * ray.d.x + x0.z * ray.d.z + r * r * ray.d.y / h * (1 + x0.y / h));
+		double b = 2 * (x0.x * ray.d.x + x0.z * ray.d.z + r * r * ray.d.y / h * (1 - x0.y / h));
 		double c = x0.x * x0.x + x0.z * x0.z + r * r * (-1 + x0.y / h * (2 - x0.y / h));
 
 		double D = Math.pow(b, 2) - 4 * a * c;
@@ -71,7 +71,7 @@ public class Cone implements Shape {
 			hit.n = Vector.direction(0, -1, 0);
 		}
 		else {
-			hit.n = Vector.direction(hit.x.x, hit.x.y - Math.sqrt(hit.x.x*hit.x.x + hit.x.z * hit.x.z) * r / h, hit.x.z);
+			hit.n = Vector.direction(hit.x.x - pos.x, Math.sqrt( Math.pow(hit.x.x - pos.x,2) + Math.pow(hit.x.z - pos.z, 2) ) * r / h, hit.x.z - pos.z);
 			hit.n = Vector.normalize(hit.n);
 		}
 
