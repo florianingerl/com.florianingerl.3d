@@ -19,6 +19,8 @@ public class Group implements Shape {
 	public Hit intersect(Ray ray) {
 		Ray ray2 = transformation == null ? ray : transformation.transformFromWorld(ray);
 		
+		if(! bounds().intersect(ray2) ) return null;
+		
 		Hit hit = null;
 		for(Shape shape : shapes) {
 			Hit h = shape.intersect(ray2);
@@ -31,9 +33,16 @@ public class Group implements Shape {
 		return hit;
 	}
 	
+	private BoundingBox boundingBox;
 	@Override
 	public BoundingBox bounds() {
-		return BoundingBox.everything;
+		if(boundingBox == null) {
+			boundingBox = BoundingBox.empty;
+			for(Shape shape: shapes) {
+				boundingBox = boundingBox.extend(shape.bounds() );
+			}
+		}
+		return boundingBox;
 	}
 
 }

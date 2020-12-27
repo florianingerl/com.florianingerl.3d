@@ -77,9 +77,13 @@ public class Cone implements Shape {
 		return hit;
 	}
 
+	
+	private BoundingBox boundingBox;
 	@Override
 	public BoundingBox bounds() {
-		return BoundingBox.everything;
+		if(boundingBox == null)
+			boundingBox = new BoundingBox(Vector.point(pos.x - r, pos.y, pos.z - r), Vector.point(pos.x + r, pos.y + h, pos.z + r));
+		return boundingBox;
 	}
 
 }
