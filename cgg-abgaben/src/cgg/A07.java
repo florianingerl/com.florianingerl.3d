@@ -36,7 +36,7 @@ public class A07 {
 		scene.add(ground);	
 
 
-		final String filename = "doc/a07-1.png" ;
+		final String filename = "doc/a07-1-test.png" ;
 		
 		
 		//Baum 1
