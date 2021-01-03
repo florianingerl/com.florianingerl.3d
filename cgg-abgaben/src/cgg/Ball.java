@@ -16,6 +16,7 @@ public class Ball implements Shape {
 	public Hit intersect(Ray ray) {
 		if(! bounds().intersect(ray) ) return null;
 		
+		boolean inside = false;
 		Direction m = Vector.direction(this.m.x, this.m.y, this.m.z);
 		Point x0 = Vector.subtract(ray.origin, m);
 		
@@ -31,9 +32,11 @@ public class Ball implements Shape {
 		double t2 = (-b - D ) / (2 * a);
 		
 		double t = Double.POSITIVE_INFINITY;
+		
 		if( t1 >= ray.tmin ) {
 			t = t1;
 		}
+	;
 		if( t2 >= ray.tmin ) {
 			t = Math.min(t, t2);
 		}
@@ -44,6 +47,9 @@ public class Ball implements Shape {
 		hit.t = t;
 		hit.x = ray.pointAt(hit.t);
 		hit.n = Vector.normalize( Vector.subtract(hit.x, this.m) );
+		if(t1 < ray.tmin || t2 < ray.tmin ) {
+			hit.n = Vector.multiply(-1, hit.n);
+		}
 		hit.material = this.material;
 		
 		return hit;

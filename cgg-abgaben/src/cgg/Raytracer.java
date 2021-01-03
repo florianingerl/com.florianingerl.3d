@@ -32,7 +32,7 @@ public class Raytracer implements Sampler {
 		if(properties.scatteredRay != null) {
 			Color result = Color.black;
 			if(properties.transmittedRay != null ) {
-				result = Color.multiply(properties.albedoTrans, calculateRadiance(properties.transmittedRay, depth ) );
+				result = Color.multiply(properties.albedoTrans, calculateRadiance(properties.transmittedRay, depth - 1) );
 			}
 			return Color.add(result, properties.emission , Color.multiply(properties.albedo , calculateRadiance(properties.scatteredRay, depth - 1) ) );
 		}
